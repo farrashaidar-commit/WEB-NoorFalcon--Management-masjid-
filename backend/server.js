@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const PORT = 5000;
+const PORT = 5001;
 
 app.use(cors());
 app.use(express.json());
@@ -53,13 +53,44 @@ let jadwalImam = [
     hari: "Senin - Rabu",
     jam: "Semua Waktu",
     telepon: "0812-3456-7890",
+    jenis: "Harian",
+    minggu: "",
   },
   {
     id: 2,
     nama: "Ustadz Budi",
-    hari: "Kamis - Jumat",
+    hari: "Kamis",
     jam: "Semua Waktu",
     telepon: "0812-3456-7891",
+    jenis: "Harian",
+    minggu: "",
+  },
+  {
+    id: 3,
+    nama: "Ustadz Farhan",
+    hari: "Jumat",
+    jam: "11:30 - Khutbah & Sholat",
+    telepon: "0812-3456-7892",
+    jenis: "Jumat",
+    minggu: "1 & 3",
+  },
+  {
+    id: 4,
+    nama: "Ustadz Rizki",
+    hari: "Jumat",
+    jam: "11:30 - Khutbah & Sholat",
+    telepon: "0812-3456-7893",
+    jenis: "Jumat",
+    minggu: "2 & 4",
+  },
+  {
+    id: 5,
+    nama: "Ustadz Dedi",
+    hari: "Sabtu - Minggu",
+    jam: "Semua Waktu",
+    telepon: "0812-3456-7894",
+    jenis: "Harian",
+    minggu: "",
   },
 ];
 let jadwalMuadzin = [
@@ -182,12 +213,10 @@ app.post("/api/register", (req, res) => {
     createdAt: new Date().toISOString(),
   };
   users.push(newUser);
-  res
-    .status(201)
-    .json({
-      message: "Registration successful",
-      user: { ...newUser, password: undefined },
-    });
+  res.status(201).json({
+    message: "Registration successful",
+    user: { ...newUser, password: undefined },
+  });
 });
 
 app.post("/api/login", (req, res) => {

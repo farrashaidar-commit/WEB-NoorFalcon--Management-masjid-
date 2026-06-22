@@ -6,16 +6,10 @@ import "./PageStyles.css";
 import "./Auth.css";
 
 const JadwalImam = () => {
-  const { data, loading, error, createData, updateData, deleteData } =
-    useApi("jadwal-imam");
+  const { data, loading, error, createData, updateData, deleteData } = useApi("jadwal-imam");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
-  const [formData, setFormData] = useState({
-    nama: "",
-    hari: "",
-    jam: "",
-    telepon: "",
-  });
+  const [formData, setFormData] = useState({ nama: "", hari: "", jam: "", telepon: "", jenis: "Harian", minggu: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +19,7 @@ const JadwalImam = () => {
       await createData(formData);
     }
     setIsModalOpen(false);
-    setFormData({ nama: "", hari: "", jam: "", telepon: "" });
+    setFormData({ nama: "", hari: "", jam: "", telepon: "", jenis: "Harian", minggu: "" });
     setEditingItem(null);
   };
 
@@ -38,6 +32,8 @@ const JadwalImam = () => {
   const columns = [
     { key: "nama", title: "Nama Imam" },
     { key: "hari", title: "Hari" },
+    { key: "jenis", title: "Jenis" },
+    { key: "minggu", title: "Minggu" },
     { key: "jam", title: "Jam" },
     { key: "telepon", title: "Telepon" },
   ];
