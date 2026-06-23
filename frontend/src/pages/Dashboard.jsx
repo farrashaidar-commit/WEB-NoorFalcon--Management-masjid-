@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FalconMascot from "../components/FalconMascot";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -116,6 +117,12 @@ function Dashboard() {
         </div>
 
         <div className="hero-panel">
+          <div className="hero-mascot-shell">
+            <div className="hero-mascot-ring"></div>
+            <div className="hero-mascot">
+              <FalconMascot size={340} />
+            </div>
+          </div>
           <div className="hero-panel-top">
             <span className="hero-panel-label">Ringkasan Hari Ini</span>
             <strong>Operasional Masjid</strong>
