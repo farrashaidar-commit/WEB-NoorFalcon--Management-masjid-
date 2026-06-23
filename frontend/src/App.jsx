@@ -8,8 +8,6 @@ import {
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import JadwalSalat from "./pages/JadwalSalat";
-import JadwalImam from "./pages/JadwalImam";
-import JadwalMuadzin from "./pages/JadwalMuadzin";
 import Pengumuman from "./pages/Pengumuman";
 import Inventaris from "./pages/Inventaris";
 import Keuangan from "./pages/Keuangan";
@@ -65,10 +63,13 @@ function App() {
                     <Routes>
                       <Route path="/" element={<Dashboard />} />
                       <Route path="/jadwal-salat" element={<JadwalSalat />} />
-                      <Route path="/jadwal-imam" element={<JadwalImam />} />
+                      <Route
+                        path="/jadwal-imam"
+                        element={<Navigate to="/jadwal-salat" replace />}
+                      />
                       <Route
                         path="/jadwal-muadzin"
-                        element={<JadwalMuadzin />}
+                        element={<Navigate to="/jadwal-salat" replace />}
                       />
                       <Route path="/pengumuman" element={<Pengumuman />} />
                       <Route path="/inventaris" element={<Inventaris />} />

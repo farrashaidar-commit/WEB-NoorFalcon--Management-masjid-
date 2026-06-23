@@ -6,13 +6,13 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const currentUser = JSON.parse(localStorage.getItem("noorfalcon_currentUser"));
+  const currentUser = JSON.parse(
+    localStorage.getItem("noorfalcon_currentUser"),
+  );
 
   const navItems = [
     { path: "/", label: "Dashboard" },
-    { path: "/jadwal-salat", label: "Jadwal Salat" },
-    { path: "/jadwal-imam", label: "Jadwal Imam" },
-    { path: "/jadwal-muadzin", label: "Jadwal Muadzin" },
+    { path: "/jadwal-salat", label: "Jadwal" },
     { path: "/pengumuman", label: "Pengumuman" },
     { path: "/inventaris", label: "Inventaris" },
     { path: "/keuangan", label: "Keuangan" },
@@ -59,7 +59,9 @@ function Navbar() {
           <div className="user-section">
             <div className="user-copy">
               <span className="user-label">Masuk sebagai</span>
-              <span className="user-name">{currentUser?.username || "Pengguna"}</span>
+              <span className="user-name">
+                {currentUser?.username || "Pengguna"}
+              </span>
             </div>
             <button
               className="logout-btn"
