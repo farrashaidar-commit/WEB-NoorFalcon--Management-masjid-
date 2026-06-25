@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import JadwalSalat from "./pages/JadwalSalat";
@@ -77,6 +78,7 @@ function App() {
                       <Route path="/donasi" element={<Donasi />} />
                     </Routes>
                   </main>
+                  <Footer />
                 </>
               </ProtectedRoute>
             }
